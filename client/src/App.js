@@ -1,15 +1,19 @@
-import React, { useState } from "react";
-import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
 
-import PlantList from "./components/PlantList";
-import ShoppingCart from "./components/ShoppingCart";
-import CheckoutForm from "./components/CheckoutForm";
+import PlantList from './components/PlantList';
+import ShoppingCart from './components/ShoppingCart';
+import CheckoutForm from './components/CheckoutForm';
 
-import "./App.css";
+import useDarkMode from './hooks/useDarkMode';
+
+import './App.css';
 
 function App() {
   // array of plants that have been added to the cart
   const [cart, setCart] = useState([]);
+  // dark mode slice of state
+  const [darkMode, setDarkMode] = useDarkMode(true);
 
   // add a plant to the cart
   const addToCart = (plant) => {
@@ -21,6 +25,12 @@ function App() {
     setCart(cart.filter((p) => p.id !== plant.id));
   };
 
+  // toggle dark/light mode
+  const toggleMode = (e) => {
+    e.preventDefault();
+    setDarkMode(!darkMode);
+  };
+
   return (
     <div>
       <Router>
@@ -28,6 +38,12 @@ function App() {
           <h1>
             React Plants <span role="img">🌿</span>
           </h1>
+          <div className="dark-mode__toggle">
+            <div
+              onClick={toggleMode}
+              className={darkMode ? 'toggle toggled' : 'toggle'}
+            />
+          </div>
           <ul className="steps">
             <li>
               <NavLink exact to="/">

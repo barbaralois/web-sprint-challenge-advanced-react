@@ -30,13 +30,23 @@ Be prepared to demonstrate your understanding of this week's concepts by answeri
 
 1. Explain how to build stateful class components.
 
+In order to add state to a class component, you will typically use the constructor method (also invoking super()) to create an object called this.state, with key/value pairs for each slice of state you use throughout your component or application. You can then update this data with setState(), and reference it throughout the component with this.state.**\_** with the key of the slice of state. This information can be passed down to child components through props.
+
 2. Describe the different phases of the component lifecycle.
+
+There are three phases in a component's lifecycle, mounting, updating, and unmounting. Mounting and unmounting occur only once, though the component can update many times during its lifetime. Mounting occurs when something is added to the DOM. Updating occurs when there is a change in state or props, basically when the component's data changes. Unmounting occurs when the component is removed from the DOM.
 
 3. Demonstrate an understanding of class component lifecycle methods.
 
+The only required component lifecycle method is render, all others are optional but allow you greater control over your application. This is where you can initialize local state or bind handlers to the component. The constructor method is automatically called during the mounting phase of the component. The render method is called after the constructor, and again after each update of the component. The componentDidMount method runs once after the component renders for the first time. You may want to make an axios call here to get data from an API. The componentDidUpdate method runs each time there is a change in the component's state or props. If you have a change in what you need from the API (such as after the user fills out a form with a new username/search-term), you can make another API call here. Finally, the componentWillUnmount method is mostly used to "clean up" leftover data, such as a ticking timer that is no longer needed or stopping a network request call.
+
 4. Define stateful logic.
 
+Stateful logic is the behind the scenes "moving parts" of an application that a user does not see, such as event handlers and slices of state. Though it usually has to deal with changing state within a component (hence the name), it does not ALWAYS directly involve state.
+
 5. Describe how to test a React component with React Testing Library.
+
+You can use the React Testing Library & Jest (bundled together) to create test suites for your componenents. You describe what the application should do, and then step by step go through and create code that performs these tasks (such as finding an element on a page, typing into an input, or clicking a button). The tests run upon save and will tell you any errors that are thrown throughout the process, helping you find bugs and identify where issues are happening in your application.
 
 You are expected to be able to answer questions in these areas. Your responses contribute to your Sprint Challenge grade.
 
