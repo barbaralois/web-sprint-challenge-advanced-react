@@ -1,7 +1,7 @@
 body {
   background: #0e101c;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
 }
 
@@ -14,11 +14,19 @@ body {
   align-items: center;
 }
 
+.dark-mode .container {
+  border-bottom: 1px solid #ec5990;
+}
+
 h1 {
   font-weight: 100;
   color: white;
   text-align: center;
   font-size: 2rem;
+}
+
+.dark-mode h1 {
+  color: black;
 }
 
 .cart-badge {
@@ -64,9 +72,17 @@ h1 {
   align-items: flex-start;
 }
 
+.dark-mode .plant-details {
+  color: black;
+}
+
 .plant-name {
   margin-top: 0;
   margin-bottom: 6px;
+}
+
+.dark-mode .plant-name {
+  color: black;
 }
 
 .plant-scientific-name {
@@ -102,6 +118,10 @@ p {
   border-bottom: 1px solid #cf0;
 }
 
+.dark-mode .cart > .plant-card {
+  border-bottom: 1px solid #ec5990;
+}
+
 .cart .plant-image {
   height: 160px;
 }
@@ -126,10 +146,18 @@ p {
   background-color: #cf0;
 }
 
+.dark-mode .success-message {
+  background-color: pink;
+}
+
 form {
   background: #0e101c;
   max-width: 400px;
   margin: 0 auto;
+}
+
+.dark-mode form {
+  background-color: #ebf5dc;
 }
 
 input {
@@ -154,6 +182,10 @@ label {
   font-weight: 200;
 }
 
+.dark-mode label {
+  color: black;
+}
+
 button {
   background: #ec5990;
   color: white;
@@ -171,7 +203,7 @@ button:hover {
 }
 
 button:active,
-input[type="button"]:active,
+input[type='button']:active,
 input:active {
   transition: 0.3s all;
   transform: translateY(3px);
@@ -183,12 +215,12 @@ input:disabled {
   opacity: 0.4;
 }
 
-input[type="button"]:hover {
+input[type='button']:hover {
   transition: 0.3s all;
 }
 
 button,
-input[type="button"],
+input[type='button'],
 input {
   -webkit-appearance: none;
 }
@@ -205,6 +237,10 @@ hr {
 h2 {
   color: white;
   font-weight: 200;
+}
+
+.dark-mode h2 {
+  color: #ec5990;
 }
 
 button {
@@ -236,11 +272,23 @@ pre {
   line-height: 2;
 }
 
+.dark-mode .steps a {
+  color: white;
+}
+
 .steps li {
   background: #cf0;
   padding: 3px 15px;
   margin-right: 15px;
   position: relative;
+}
+
+.dark-mode .steps li {
+  background: #ec5990;
+}
+
+.dark-mode .steps li:hover {
+  background: #df2e6c;
 }
 
 .steps li:last-child {
@@ -250,4 +298,38 @@ pre {
 .active {
   color: #0e101c;
   border-bottom: 2px solid !important;
+}
+
+.dark-mode .total {
+  color: black;
+}
+
+/* dark mode toggle */
+
+.dark-mode__toggle {
+  background: pink;
+  border-radius: 50px;
+  border: 1px solid black;
+  height: 20px;
+  position: relative;
+  width: 40px;
+}
+
+.toggle {
+  background: #ec5990;
+  border-radius: 50px;
+  height: 18px;
+  left: 0;
+  position: absolute;
+  transition: 0.2s;
+  width: 20px;
+}
+
+.toggled {
+  left: 18px;
+}
+
+.dark-mode {
+  background-color: #ebf5dc;
+  color: black;
 }
